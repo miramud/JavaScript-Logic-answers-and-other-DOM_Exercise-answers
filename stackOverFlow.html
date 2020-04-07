@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .style1 {
+            background: rgb(255, 0, 255);
+            border-radius: 5px;
+        }
+
+        .style2 {
+            background: rgb(0, 255, 255);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table border="1px">
+        <tr>
+            <td class="click_td" id=0>color</td>
+            <td class="click_td" id=1>color 2</td>
+            <td class="click_td" id=2>color 3</td>
+            <td class="click_td" id=3>color 4</td>
+            <td class="click_td" id=4>color 5</td>
+        </tr>
+    </table>
+    <button class="click_btn" data-style="style1">can be erased</button>
+    <button class="click_btn" data-style="style2">cannot be erased</button>
+    <button class="erase">erase</button>
+
+
+
+    <script src="../jquery/jquery.min.js"></script>
+    <script>
+        var $ = jQuery;
+        var style = '';
+        let clicked = [];
+
+        $('.click_btn').on('click', function () {
+            e.preventDefault();
+            style = $(this).data().style;
+            $('.click_td').addClass(style);
+        });
+
+        $('.erase').on('click', function () {
+            $('.click_td').on('click', function () {
+                $(this).removeClass('style1 style2');
+            })
+        })
+    </script>
+</body>
+
+</html>
